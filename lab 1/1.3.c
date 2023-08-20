@@ -1,38 +1,56 @@
 #include<stdio.h>
-struct student
+#include<stdlib.h>
+struct employee
 {
-    char name;
-    char desig;
+    char name[30];
+    char desig[30];
     int bsal;
-    int hra;
-    int da;
-    int gross;
-
+    float hra;
+    float da;
+    float gross;
 };
-
-void read(struct student *k)
-{
-   for (int i = 0; i < 5; i++)
-   {
-    int sum=(*(k+i)).m1+(*(k+i)).m2+(*(k+i)).m3;
-    if ((sum/5)<50)
-    {
-        printf("%d\n",(*(k+i)).roll);
-    }
-   }
-   
-}
-
+typedef struct employee emp;
 int main()
 {
-    printf("enter number of entries");
-    scanf("%d",&n);
-    for (int i=0;i<n;i++)
-    {
-        scanf("%d",&s[i].roll);
-        scanf("%d",&s[i].m1);
-        scanf("%d",&s[i].m2);
-        scanf("%d",&s[i].m3);
+    emp *ptr;
+    int n;
+    float grs;
+    printf("enter number of employees");
+    scanf("%d", &n);
+    ptr = (emp *)malloc(n * sizeof(emp));
+    for (int i = 0; i < n; i++)
+    {   
+        printf("details of employee %d",i+1);
+        
+        printf("\nEnter name: ");
+        scanf("%s", ptr[i].name);
+
+        printf("Enter the designation: ");
+        scanf("%s", ptr[i].desig);
+
+        printf("Enter base salary: ");
+        scanf("%d", &ptr[i].bsal);
+
+        printf("Enter the hra: ");
+        scanf("%f%%", &ptr[i].hra);
+
+        printf("Enter the da: ");
+        scanf("%f%%", &ptr[i].da);
+
+        grs=(ptr[i].bsal+(((ptr[i].hra/100)*(ptr[i].bsal))+((ptr[i].da/100)*ptr[i].bsal)));
+        ptr[i].gross=grs;
+
     }
-    read(s);
+        printf("employee information");
+    for (int i = 0; i < n; i++)
+    {
+        printf("\nname is %s",ptr[i].name);
+        printf("\ndesig is %s",ptr[i].desig);
+        printf("\nbase sal is %d",ptr[i].bsal);
+        printf("\nhra is %f",ptr[i].hra);
+        printf("\nda is %f",ptr[i].da);
+        printf("\nhra value is %f",((ptr[i].hra/100)*(ptr[i].bsal)));
+        printf("\nda value is %f",((ptr[i].da/100)*ptr[i].bsal));
+        printf("\ngross is %f\n",ptr[i].gross);
+    }
 }
