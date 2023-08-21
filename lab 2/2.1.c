@@ -2,7 +2,7 @@
 #include<stdlib.h>
 int main()
 {
-    int insert(int *ptra,int m)
+    int insert(int *ptra,int *m)
     {
         int i;
         int k;
@@ -12,13 +12,11 @@ int main()
         printf("enter the value");
         scanf("%d",&j);
 
-        for (i=0;i<m;i++)
+        for (i=0;i<*m;i++)
         {
             
             if (i==k)
             {
-                
-                *ptra=j;
                 
             }
             ptra++;
@@ -26,53 +24,57 @@ int main()
         return 0;
     }
 
-    int del()
+    int del(int *ptra,int *m)
     {
         int i;
-        int k;
-        int j;
-        printf("\nenter the position");
-        scanf("%d",&k);
-        printf("enter the value");
+        int j,p;
+        printf("enter position to del");
         scanf("%d",&j);
-
-        for (i=0;i<m;i++)
+        if(j<=*m)
         {
-            
-            if (i==k)
+            for (i=(j-1);i<*m;i++)
             {
-                
-                *ptra=j;
-                
+                p=i+1;
+                *(ptra+i)=*(ptra+p);
             }
-            ptra++;
+            *m=*m-1;
+            printf("m is %d",*m);
+        }
+        else
+        {
+            printf("\ninvalid");
         }
         return 0;
     }
 
-    int lsearch()
+    int lsearch(int *ptra,int *m)
     {
         int i;
-        int k;
         int j;
-        printf("\nenter the position");
-        scanf("%d",&k);
         printf("enter the value");
         scanf("%d",&j);
 
-        for (i=0;i<m;i++)
+        for (i=0;i<*m;i++)
         {
             
             if (j==*ptra)
             {
-                printf("%d",*ptra);   
+                printf("\nthe element exists at position %d is the %dth element\n",i,i+1);   
             }
             ptra++;
         }
         return 0;
     }
 
-    int traverse(){
+    int traverse(int *ptra,int *m)
+    {
+        int i;
+        for (i=0;i<*m;i++)
+        {
+            
+            printf("\n%d",*ptra);   
+            ptra++;
+        }
         return 0;
     }
 
@@ -87,29 +89,30 @@ int main()
         scanf("%d",&a[i]);
     }
     int *ptr=&a[0];
+    int *q=&n;
     while(1)
     {
         int choice;
-        printf("Press 1 to insert.\n");
+        printf("\nPress 1 to insert.\n");
         printf("Press 2 to delete\n");
         printf("Press 3 to lenear search\n");
         printf("Press 4 to traverse\n");
         printf("Press 5 to exit\n");
         scanf("%d", &choice);
         if (choice==1){
-            insert(ptr,n);
+            insert(ptr,q);
         }
         else if (choice==2)
         {
-            del(ptr,n);
+            del(ptr,q);
         }
         else if (choice==3)
         {
-            lsearch(ptr,n);
+            lsearch(ptr,q);
         }
         else if (choice==4)
         {
-            traverse(ptr,n);
+            traverse(ptr,q);
         }
         else if (choice==5)
         {
