@@ -1,26 +1,28 @@
 #include<stdio.h>
+#include<stdlib.h>
 int main()
 {
-    int insert(int *ptra,m){
+    int insert(int *ptra,int m)
+    {
         int i;
         int k;
-        printf("enter the posotion");
+        int j;
+        printf("\nenter the position");
         scanf("%d",&k);
+        printf("enter the value");
+        scanf("%d",&j);
+
         for (i=0;i<m;i++)
         {
-            int j;
-            printf("\n%d",*ptra);
-            for ( j=1;j<=*ptra;j++)
+            
+            if (i==k)
             {
                 
+                *ptra=j;
+                
             }
-            printf("number of times divisible =%d",cnt);
-            if (cnt<=2)         
-            {
-                sum=sum+*ptra;
-            }
-            
             ptra++;
+        }
         return 0;
     }
 
@@ -36,9 +38,6 @@ int main()
         return 0;
     }
 
-    int exit(){
-        return 0;
-    }
     int n;
     printf("enter the length of array");
     scanf("%d",&n);
@@ -76,8 +75,7 @@ int main()
         }
         else if (choice==5)
         {
-            exit();
+            break;
         }
     }
-    
 }
