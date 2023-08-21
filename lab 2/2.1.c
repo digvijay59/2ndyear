@@ -26,11 +26,49 @@ int main()
         return 0;
     }
 
-    int del(){
+    int del()
+    {
+        int i;
+        int k;
+        int j;
+        printf("\nenter the position");
+        scanf("%d",&k);
+        printf("enter the value");
+        scanf("%d",&j);
+
+        for (i=0;i<m;i++)
+        {
+            
+            if (i==k)
+            {
+                
+                *ptra=j;
+                
+            }
+            ptra++;
+        }
         return 0;
     }
 
-    int lsearch(){
+    int lsearch()
+    {
+        int i;
+        int k;
+        int j;
+        printf("\nenter the position");
+        scanf("%d",&k);
+        printf("enter the value");
+        scanf("%d",&j);
+
+        for (i=0;i<m;i++)
+        {
+            
+            if (j==*ptra)
+            {
+                printf("%d",*ptra);   
+            }
+            ptra++;
+        }
         return 0;
     }
 
