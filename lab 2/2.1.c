@@ -1,7 +1,26 @@
 #include<stdio.h>
 int main()
 {
-    int insert(){
+    int insert(int *ptra,m){
+        int i;
+        int k;
+        printf("enter the posotion");
+        scanf("%d",&k);
+        for (i=0;i<m;i++)
+        {
+            int j;
+            printf("\n%d",*ptra);
+            for ( j=1;j<=*ptra;j++)
+            {
+                
+            }
+            printf("number of times divisible =%d",cnt);
+            if (cnt<=2)         
+            {
+                sum=sum+*ptra;
+            }
+            
+            ptra++;
         return 0;
     }
 
