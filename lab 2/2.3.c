@@ -5,8 +5,8 @@
 
 int main()
 {
-	int mat[mrow][mcolumn],sparse[srow][3];
-	int i,j,nzero=0,mr,mc,sr,s;
+	int mat[mrow][mcolumn];//,sparse[srow][3];
+	int i,j,nzero=0,mr,mc;//,sr,s;
 
 	
 	printf("Enter number of rows : ");
