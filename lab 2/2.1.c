@@ -31,7 +31,7 @@ void insert(int *ptra, int *m)
     }
 
 
-    }
+}
 
 int del(int *ptra, int *m)
 {
@@ -47,7 +47,7 @@ int del(int *ptra, int *m)
             *(ptra + i) = *(ptra + p);
         }
         *m = *m - 1;
-        printf("m is %d", *m);
+        printf("deleted");
     }
     else
     {
