@@ -9,8 +9,6 @@ int main(){
         {
             int j;
             int cnt=0;
-            
-            printf("\n%d",*ptra);
             for ( j=1;j<=*ptra;j++)
             {
                 if(*ptra%j==0)
@@ -19,8 +17,7 @@ int main(){
 
                 }
             }
-            printf("number of times divisible =%d",cnt);
-            if (cnt<=2)         
+            if (cnt<=2 && cnt>1)         
             {
                 sum=sum+*ptra;
             }
