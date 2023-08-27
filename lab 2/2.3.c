@@ -34,8 +34,21 @@ int main()
 		}
 	printf("\n");
 	}
+	printf("%5d",mr);
+	printf("%5d",mc);
+	printf("%5d\n",nzero);
+	for(i=0;i<mr;i++)
+		for(j=0;j<mc;j++)
+		{
+			if(mat[i][j]!=0)
+			{
+				printf("%5d",i);
+				printf("%5d",j);
+				printf("%5d\n",mat[i][j]);
+			}
+	}
 
-	sr=nzero+1;
+	/*sr=nzero+1;
 	sparse[0][0]=mr;
 	sparse[0][1]=mc;
 	sparse[0][2]=nzero;
@@ -46,8 +59,8 @@ int main()
 		{
 			if(mat[i][j]!=0)
 			{
-				sparse[s][0]=i+1;
-				sparse[s][1]=j+1;
+				sparse[s][0]=i;
+				sparse[s][1]=j;
 				sparse[s][2]=mat [i][j];
 				s++;
 			}
@@ -60,5 +73,5 @@ int main()
 		for(j=0;j<3;j++)
 			printf("%5d",sparse[i][j]);
 		printf("\n");
-	}
+	}*/
 }
