@@ -10,14 +10,9 @@ struct employee
     float gross;
 };
 typedef struct employee emp;
-int main()
+void enter(emp* ptr,int n)
 {
-    emp *ptr;
-    int n;
     float grs;
-    printf("enter number of employees");
-    scanf("%d", &n);
-    ptr = (emp *)malloc(n * sizeof(emp));
     for (int i = 0; i < n; i++)
     {   
         printf("details of employee %d",i+1);
@@ -37,11 +32,14 @@ int main()
         printf("Enter the da: ");
         scanf("%f%%", &ptr[i].da);
 
-        grs=(ptr[i].bsal+(((ptr[i].hra/100)*(ptr[i].bsal))+((ptr[i].da/100)*ptr[i].bsal)));
+        grs=((ptr[i].bsal)+(((ptr[i].hra/100)*(ptr[i].bsal))+((ptr[i].da/100)*(ptr[i].bsal))));
         ptr[i].gross=grs;
 
     }
-        printf("employee information");
+}
+void disp(emp* ptr,int n)
+{
+    printf("employee information");
     for (int i = 0; i < n; i++)
     {
         printf("\nname is %s",ptr[i].name);
@@ -53,4 +51,15 @@ int main()
         printf("\nda value is %f",((ptr[i].da/100)*ptr[i].bsal));
         printf("\ngross is %f\n",ptr[i].gross);
     }
+}
+int main()
+{
+    emp *ptr;
+    int n;
+    
+    printf("enter number of employees");
+    scanf("%d", &n);
+    ptr = (emp *)malloc(n * sizeof(emp));
+    enter(ptr,n);
+    disp(ptr,n);
 }

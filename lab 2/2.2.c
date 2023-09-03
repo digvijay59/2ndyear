@@ -8,10 +8,12 @@ int traverse(int *ptra, int k)
     {
         for(j=0;j<k;j++)
         {
-            if(*((ptra+i*k) + j)!=0)
+            //if(*((ptra+i*k) + j)!=0)
+            if(*ptra!=0)
             {
                 count=count+1;
             }
+            ptra++;
         }
     }
     printf("no: of non zero ele=%d",count);
@@ -27,10 +29,13 @@ int upper(int *ptra, int k)
         {
             if(i<j)
             {
-                printf("%d",*((ptra+i*k) + j));
+                //printf("%d",*((ptra+i*k) + j));
+                printf("%d",*ptra);
+                ptra++;
             }
             else{
                 printf(" ");
+                ptra++;
             }
             
         }
@@ -48,10 +53,13 @@ int dia(int *ptra, int k)
         {
             if(i-j==1||j-i==1)
             {
-                printf("%d",*((ptra+i*k) + j));
+                //printf("%d",*((ptra+i*k) + j));
+                printf("%d",*ptra);
+                ptra++;
             }
             else{
                 printf(" ");
+                ptra++;
             }
             
         }

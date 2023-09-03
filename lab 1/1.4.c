@@ -2,22 +2,48 @@
 #include <stdlib.h>
 struct complex
 {
-  int real, img;
+  int real;
+  int img;
 };
+typedef struct complex cmp;
+void sum(cmp a,cmp b,cmp c)
+{ 
+  c.real = a.real + b.real;
+  c.img = a.img + b.img;
 
+  if (c.img >= 0)
+    printf("Sum of the complex numbers = %d + %di\n", c.real, c.img);
+  else
+    printf("Sum of the complex numbers = %d %di\n", c.real, c.img);
+  return ;
+}
+void multi(cmp* ptra,cmp* ptrb,cmp* ptrc)
+{
+  ptrc->real = ptra->real*ptrb->real - ptra->real*ptrb->img;
+  ptrc->img = ptra->img*ptrb->real + ptra->real*ptrb->img;
+
+  if (ptrc->img >= 0)
+    printf("Multiplication of the complex numbers = %d + %di\n", ptrc->real, ptrc->img);
+  else
+    printf("Multiplication of the complex numbers = %d %di\n", ptrc->real, ptrc->img);
+}
 int main()
 {
-  int choice, x, y, z;
-  struct complex a, b, c;
-
+  int choice;
+  cmp a, b, c;
+  cmp* ptra;
+  cmp* ptrb;
+  cmp* ptrc;
+  ptra =&a;
+  ptrb =&b;
+  ptrc =&c;
   while(1)
   {
     printf("Press 1 to add two complex numbers.\n");
     printf("Press 2 to multiply two complex numbers\n");
     printf("Press 3 to exit\n");
     scanf("%d", &choice);
-    if (choice==3)
-        exit(0);
+    
 
     if (choice>=1 && choice<=2)
     {
@@ -31,28 +57,18 @@ int main()
         scanf("%d", &b.real);
         printf("d = ");
         scanf("%d", &b.img);
+        if (choice == 1)
+        {
+          sum(a,b,c);
+        }
+        else if (choice == 2)
+        {
+          multi(ptra,ptrb,ptrc);
+        }
     }
-    if (choice == 1)
-    {
-      c.real = a.real + b.real;
-      c.img = a.img + b.img;
-
-      if (c.img >= 0)
-        printf("Sum of the complex numbers = %d + %di\n", c.real, c.img);
-      else
-        printf("Sum of the complex numbers = %d %di\n", c.real, c.img);
-    }
-    else if (choice == 2)
-    {
-      c.real = a.real*b.real - a.img*b.img;
-      c.img = a.img*b.real + a.real*b.img;
-
-      if (c.img >= 0)
-        printf("Multiplication of the complex numbers = %d + %di\n", c.real, c.img);
-      else
-        printf("Multiplication of the complex numbers = %d %di\n", c.real, c.img);
-    }
+    
+    else if (choice==3)
+      exit(0);
   }
-  ///else {
-    ///printf("Invalid Input");
+    
 }

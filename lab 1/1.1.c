@@ -1,13 +1,5 @@
 #include<stdio.h>
-int main(){
-    int a;
-    int b;
-    printf("enter 2 numbers\n");
-    scanf("%d",&a);
-    scanf("%d",&b);
-    int *aptr=&a;
-    int *bptr=&b;
-    int cba(int* cptr,int* dptr)
+int cba(int* cptr,int* dptr)
     {
         
         if (*cptr>*dptr)
@@ -20,5 +12,13 @@ int main(){
         
         return 0;
     }
+int main(){
+    int a;
+    int b;
+    printf("enter 2 numbers\n");
+    scanf("%d",&a);
+    scanf("%d",&b);
+    int *aptr=&a;
+    int *bptr=&b;
     cba(aptr,bptr);
 }
