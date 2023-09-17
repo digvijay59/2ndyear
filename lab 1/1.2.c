@@ -8,9 +8,9 @@ int addprime(int *ptra,int m)
     {
         int j;
         int cnt=0;
-        for ( j=1;j<=*ptra;j++)
+        for ( j=1;j<=ptra[i];j++)
         {
-            if(*ptra%j==0)
+            if(ptra[i]%j==0)
             {
                 cnt=cnt+1;
 
@@ -18,10 +18,9 @@ int addprime(int *ptra,int m)
         }
         if (cnt<=2 && cnt>1)         
         {
-            sum=sum+*ptra;
+            sum=sum+ptra[i];
         }
         
-        ptra++;
     }
     printf("\nsum is %d",sum);
     return 0;

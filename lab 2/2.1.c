@@ -88,21 +88,20 @@ int traverse(int *ptra, int *m)
 }
 
 
-
 int main()
 {
     int n;
     printf("enter the length of array");
     scanf("%d", &n);
-    int a[n];
-
+    int *ptr ;
+    ptr=(int*)malloc(n*sizeof(int));
     int i;
     printf("enter the elements");
     for (i = 0; i < n; i++)
     {
-        scanf("%d", &a[i]);
+        scanf("%d", &ptr[i]);
     }
-    int *ptr = &a[0];
+    
     int *q = &n;
     while (1)
     {

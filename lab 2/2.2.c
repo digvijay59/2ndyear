@@ -1,26 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int traverse(int *ptra, int k)
+int traverse(int **ptra, int k)
 {
     int i,j,count=0;
     for (i = 0; i < k; i++)
     {
         for(j=0;j<k;j++)
         {
-            //if(*((ptra+i*k) + j)!=0)
-            if(*ptra!=0)
+            if(ptra[i][j]!=0)
             {
                 count=count+1;
             }
-            ptra++;
         }
     }
     printf("no: of non zero ele=%d",count);
     return 0;
 }
 
-int upper(int *ptra, int k)
+int upper(int **ptra, int k)
 {
     int i,j;
     for (i = 0; i < k; i++)
@@ -28,14 +26,11 @@ int upper(int *ptra, int k)
         for(j=0;j<k;j++)
         {
             if(i<j)
-            {
-                //printf("%d",*((ptra+i*k) + j));
-                printf("%d",*ptra);
-                ptra++;
+            {;
+                printf("%d",ptra[i][j]);
             }
             else{
                 printf(" ");
-                ptra++;
             }
             
         }
@@ -44,7 +39,7 @@ int upper(int *ptra, int k)
     return 0;
 }
 
-int dia(int *ptra, int k)
+int dia(int **ptra, int k)
 {
     int i,j;
     for (i = 0; i < k; i++)
@@ -53,13 +48,10 @@ int dia(int *ptra, int k)
         {
             if(i-j==1||j-i==1)
             {
-                //printf("%d",*((ptra+i*k) + j));
-                printf("%d",*ptra);
-                ptra++;
+                printf("%d",ptra[i][j]);
             }
             else{
                 printf(" ");
-                ptra++;
             }
             
         }
@@ -75,17 +67,24 @@ int main()
     int n;
     printf("enter the order of matrix");
     scanf("%d", &n);
-    int a[n][n];
+    int** ptr;
+    ptr=(int**)malloc(n*(sizeof(int)));
+    for (int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            ptr[i]=(int*)malloc(n*(sizeof(int)));
+        }
+    }
     int i,j;
     printf("enter the elements");
     for (i = 0; i < n; i++)
     {
         for (j=0;j<n;j++)
         {
-            scanf("%d", &a[i][j]);
+            scanf("%d", &ptr[i][j]);
         }
     }
-    int *ptr = &a[0][0];
     while (1)
     {
         int choice;
